@@ -1,4 +1,4 @@
-"use client"
+
 import List from "@/components/List";
 import ListSkeleton from "@/components/ListSkeleton";
 import { Button } from "@mui/material";

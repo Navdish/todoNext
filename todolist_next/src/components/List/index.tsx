@@ -6,7 +6,7 @@ interface datatype {
 }
 
 async function List() {
-    var data:[datatype]|[] = [{_id: "", content:""}];
+  var data:[datatype]|[] = [{_id: "", content:""}];
   async function getTodo() {
     try {
       const response = await fetch("http://localhost:3000/api/todo");
