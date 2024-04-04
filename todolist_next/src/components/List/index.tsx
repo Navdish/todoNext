@@ -1,29 +1,34 @@
 import React, { useEffect, useState } from "react";
+import FormBox from "../Box";
 
 interface datatype {
   _id: string;
   content: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
 }
 
 async function List() {
-  var data:[datatype]|[] = [{_id: "", content:""}];
   async function getTodo() {
     try {
-      const response = await fetch("http://localhost:3000/api/todo");
+      const response = await fetch("http://localhost:3000/api/todo", { next: { tags: ['todolist'] } });
       const temp = await response.json();
-      console.log(temp.list);
-      data = temp.list;
+      return temp.list;
     } catch (error) {
       console.log("error - ", error);
     }
   }
-  await getTodo();
+  var data:[datatype]|[] = await getTodo();
   return (
     <div>
-      List
       <ul>
         {data?.map((d) => {
-          return <li key={d._id}>{d?.content}</li>;
+          return (
+          <li key={d._id}>
+            {d?.content}
+            <FormBox id = {d._id} content ={d.content}/>
+          </li>);
         })}
       </ul>
     </div>

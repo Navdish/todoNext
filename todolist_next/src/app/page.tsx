@@ -3,10 +3,7 @@ import List from "@/components/List";
 import ListSkeleton from "@/components/ListSkeleton";
 import { Button } from "@mui/material";
 import Link from "next/link";
-import { Suspense, useEffect, useState } from "react";
-
-
-
+import { Suspense } from "react";
 
 export default function Home() {
   
@@ -14,7 +11,7 @@ export default function Home() {
   return (
     <>
       <h1>Home</h1>
-      <Button><Link href='/todo'>Go to Item</Link></Button>
+      <Link href='/todo'>Go to Item</Link>
       <Suspense fallback={<ListSkeleton />}>
         <List/>
       </Suspense>

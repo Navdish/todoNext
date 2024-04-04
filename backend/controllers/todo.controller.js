@@ -21,7 +21,7 @@ exports.create = async (req, res)=>{
 }
 exports.update = async (req, res)=>{
     try {
-      const list = await todoService.updateListItem({data : req?.body});
+      const list = await todoService.updateListItem({params : req?.params, data: req?.body});
       res.status(201).json({list, message: "List updated successfully"});
     }
     catch(error) {
